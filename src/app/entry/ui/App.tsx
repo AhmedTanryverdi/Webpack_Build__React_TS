@@ -1,7 +1,7 @@
-import React from "react";
-import { Header } from "../../../widgets/header/Header.tsx";
+import { Header } from "@/widgets/header/Header";
 
-export const App = () => {
+
+export const App: React.FC = (): React.JSX.Element => {
 	return (
 		<div>
 			<Header />

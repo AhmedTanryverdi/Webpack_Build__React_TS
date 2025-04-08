@@ -1,14 +1,16 @@
-import React from 'react';
-import './header.scss';
+import "./header.scss";
+import icon from "./favicon.png";
 
-export const Header = () => {
-  return (
-    <header className='header'>
-        <div className="container">
-            <div className="content">
-                <h1 className='title'>Delivery</h1>
-            </div>
-        </div>
-    </header>
-  )
-}
+export const Header: React.FC = (): React.JSX.Element => {
+
+	return (
+		<header className="header">
+			<div className="container">
+				<div className="header__content">
+					<h1 className="header__title">Delivery</h1>
+					<img src={icon} alt="favicon" />
+				</div>
+			</div>
+		</header>
+	);
+};

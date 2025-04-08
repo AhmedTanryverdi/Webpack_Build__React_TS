@@ -1,8 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { use } = require("react");
 
 module.exports = {
+	mode: "development",
+
 	entry: path.resolve(__dirname, "src/app/entry/main.tsx"),
 
 	output: {
@@ -11,7 +14,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: [".js", ".ts", "jsx", "tsx"],
+		extensions: [".js", ".ts", ".tsx"],
 		alias: {
 			"@": path.resolve(__dirname, "src"),
 		},
@@ -38,7 +41,7 @@ module.exports = {
 			{
 				test: /\.(ts|tsx)$/,
 				exclude: "/node_models/",
-				use: ["babel-loader"],
+				use: ["babel-loader", "ts-loader"],
 			},
 			{
 				test: /\.css$/,
@@ -50,6 +53,10 @@ module.exports = {
 				exclude: "/node_models/",
 				use: ["style-loader", "css-loader", "sass-loader"],
 			},
+			{
+				test: /\.(png|jpg|svg)$/,
+				use: ["file-loader"]
+			}
 		],
 	},
 
