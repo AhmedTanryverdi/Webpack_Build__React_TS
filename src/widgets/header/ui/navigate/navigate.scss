@@ -1,0 +1,6 @@
+@import "@/shared/scss/styles.scss";
+
+.navigate {
+	@include flex-center;
+	column-gap: 50px;
+}
