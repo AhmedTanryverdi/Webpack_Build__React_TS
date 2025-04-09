@@ -1,17 +1,62 @@
+@import "@/shared/scss/styles.scss";
+
 .header {
 	width: 100%;
+	padding: 50px 200px 30px 200px;
 
-	.container {
-		width: 1320px;
-		margin: 0 auto;
+	.header__content {
+		max-width: 1300px;
 
-		.header__content {
-			background-color: #000;
-			.header__title {
-				padding: 20px;
-				margin-left: 50px;
-				color: rgb(84, 177, 84);
+		.header__top-row {
+			@include flex(row, space-between, flex-start);
+			padding-bottom: 50px;
+			border-bottom: 1px solid #727174;
+
+			.header__social {
+				max-width: 130px;
+				@include flex;
+				column-gap: 30px;
+				&_icon {
+					width: 15px;
+					height: 15px;
+				}
 			}
+
+			.header__logo {
+				@include flex;
+				position: relative;
+				
+				&_icon{
+					width: 35px;
+					height: 35px;
+				}
+
+				&_shoe{
+					position: absolute;
+				}
+
+				&_title {
+					@include font(700, 17px);
+					color: $primary-color;
+					margin-left: 10px;
+				}
+			}
+
+			.header__icons {
+				max-width: 107px;
+				@include flex-center;
+				column-gap: 30px;
+
+				&_item {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+
+		.navigate-menu{
+			padding: 30px 0;
+			@include flex-center;
 		}
 	}
 }

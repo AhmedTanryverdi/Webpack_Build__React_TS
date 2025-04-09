@@ -1,0 +1,20 @@
+@mixin flex-center($dir: row){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex($dir: row, $jc: space-between, $ai: center){
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin font($fw, $fs, $lh:100%, $ls: 0%){
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh;
+    letter-spacing: $lh;
+}
