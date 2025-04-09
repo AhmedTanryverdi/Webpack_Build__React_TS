@@ -1,10 +1,18 @@
-import { Header } from "@/widgets/header/Header";
+import { Route, Routes } from "react-router-dom";
+import { Root } from "./Root";
+import {Home} from '@/pages/home/Home';
+import { AboutUs } from "@/pages/about-us/AboutUs";
 
 
 export const App: React.FC = (): React.JSX.Element => {
 	return (
-		<div>
-			<Header />
+		<div className="app">
+			<Routes>
+				<Route path="/" element={<Root />}>
+					<Route path="" element={<Home />} />
+					<Route path="about" element={<AboutUs />} />
+				</Route>
+			</Routes>
 		</div>
 	);
 };
