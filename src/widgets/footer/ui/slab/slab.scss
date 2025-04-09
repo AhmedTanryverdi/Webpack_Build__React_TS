@@ -1,0 +1,10 @@
+@import "@/shared/scss/styles.scss";
+
+.slab{
+    width: 100%;
+
+    .slab__content{
+        padding: 40px 200px;
+        background-color: $primary-dark-color;
+    }
+}

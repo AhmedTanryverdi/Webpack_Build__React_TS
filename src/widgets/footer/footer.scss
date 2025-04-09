@@ -1,0 +1,99 @@
+@import "@/shared/scss/styles.scss";
+
+.footer {
+	width: 100%;
+	margin-top: auto;
+
+	&__body {
+		padding: 120px 200px;
+		@include flex(row, space-between, flex-start);
+
+		.footer__left {
+			.footer__left_counter {
+				@include flex(row, flex-start, flex-start);
+				column-gap: 40px;
+
+				.footer__left_counter-item {
+					max-width: 120px;
+
+					.footer__left_counter-title {
+						@include font(700, 15px);
+					}
+
+					.footer__left_counter-group {
+						margin-top: 24px;
+						@include font(400, 15px);
+						@include flex(column, flex-start, flex-start);
+						row-gap: 12px;
+					}
+				}
+			}
+
+			.footer__left_information {
+				max-width: 639px;
+				margin-top: 50px;
+
+				.footer__left_information-title {
+					@include font(700, 15px);
+				}
+
+				.footer__left_information-text {
+					@include font(400, 15px);
+
+					margin-top: 24px;
+					p {
+						margin-top: 8px;
+					}
+				}
+			}
+		}
+
+		.footer__right {
+			max-width: 373px;
+
+			.footer__right-top {
+				.footer__right-top-title {
+					@include font(700, 15px);
+				}
+
+				.footer__right-top-desc {
+					margin-top: 24px;
+					@include font(400, 15px);
+
+					p {
+						margin-top: 8px;
+					}
+				}
+			}
+
+			.footer__right_bottom {
+				margin-top: 75.5px;
+				@include flex;
+				flex-wrap: wrap;
+				row-gap: 29px;
+
+				.footer__right_bottom-icon {
+					@include flex-center;
+					column-gap: 10px;
+
+					img {
+						width: 20px;
+						height: 24px;
+						object-fit: contain;
+					}
+
+					p {
+						@include font(400, 15px);
+					}
+				}
+			}
+
+			.footer__right_bottom-phone::before {
+				content: url("./assets/icons/phone.png");
+				width: 16px;
+				height: 16px;
+				display: inline-block;
+			}
+		}
+	}
+}
