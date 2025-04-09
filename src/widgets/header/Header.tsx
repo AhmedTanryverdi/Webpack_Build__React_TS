@@ -1,7 +1,7 @@
 import "./header.scss";
 import facebook from "./assets/icons/facebook.png";
-import instagram from "./assets/icons/facebook.png";
-import twitter from "./assets/icons/facebook.png";
+import instagram from "./assets/icons/instagram.png";
+import twitter from "./assets/icons/twitter.png";
 import search from "./assets/icons/search.png";
 import user from "./assets/icons/user.png";
 import shoppingCart from "./assets/icons/shopping-cart.png";

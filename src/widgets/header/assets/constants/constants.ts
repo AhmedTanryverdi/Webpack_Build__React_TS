@@ -1,1 +1,1 @@
-export const navigateMenu: string[] = ["Home", "shop", "product", "About Us", "Contact Us"];
+export const navigateMenu: string[] = ["Home", "Shop", "Product", "About Us", "Contact Us"];

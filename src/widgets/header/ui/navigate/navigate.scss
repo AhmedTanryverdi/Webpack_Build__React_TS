@@ -3,4 +3,25 @@
 .navigate {
 	@include flex-center;
 	column-gap: 50px;
+
+	button {
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+		@include font(700, 12px);
+		color: $primary-dark-color;
+
+		&:focus{
+			color: $primary-color;
+		}
+	}
+
+	a{
+		@include font(700, 12px);
+		color: $primary-dark-color;
+
+		&:focus{
+			color: $primary-color;
+		}
+	}
 }
