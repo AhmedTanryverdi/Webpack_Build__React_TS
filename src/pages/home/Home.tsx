@@ -7,10 +7,8 @@ export const Home: React.FC = (): React.JSX.Element => {
 	return (
 		<div className="home">
 			<div className="container">
-				<div className="home__content">
-					<Main />
-					<SneakersModels />
-				</div>
+				<Main />
+				<SneakersModels />
 			</div>
 		</div>
 	);

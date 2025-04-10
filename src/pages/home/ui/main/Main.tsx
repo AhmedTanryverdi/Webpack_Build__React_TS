@@ -17,14 +17,9 @@ export const Main: React.FC = (): React.JSX.Element => {
 					ultricies enim. Nullam pulvinar felis at metus.
 				</p>
 				<Button text="View All Items" name="home__main_button" />
-
-				<div className="main__bg">
-					<img
-						src={photo}
-						alt="bg image"
-						className="main__bg_image"
-					/>
-				</div>
+			</div>
+			<div className="main__bg">
+				<img src={photo} alt="bg image" className="main__bg_image" />
 			</div>
 		</section>
 	);

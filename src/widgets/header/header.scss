@@ -6,7 +6,8 @@
 
 	.header__content {
 		max-width: 1300px;
-
+		margin: 0 auto;
+		
 		.header__top-row {
 			@include flex(row, space-between, flex-start);
 			padding-bottom: 50px;
