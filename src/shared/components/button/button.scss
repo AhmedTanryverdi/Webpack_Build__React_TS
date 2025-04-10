@@ -1,0 +1,9 @@
+@import "@/shared/scss/styles.scss";
+
+.button{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: $primary-color;
+    color: $primary-light-color;
+}
