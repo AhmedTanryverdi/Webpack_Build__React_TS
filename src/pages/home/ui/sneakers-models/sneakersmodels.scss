@@ -1,0 +1,113 @@
+@import "@/shared/scss/styles.scss";
+
+.sneakers-models {
+	.sneakers-models__discount {
+		display: flex;
+		column-gap: 90px;
+		max-width: 1300px;
+		height: 566px;
+		margin: 0 auto;
+		position: relative;
+		top: -100px;
+		background-color: $primary-light-color;
+		box-shadow: 0px 20px 80px 0px #c1c7d4b3;
+
+		.sneakers-models__discount_left {
+			max-width: 494px;
+			margin-top: 77px;
+			margin-left: 70px;
+			&-title {
+				@include font(900, 40px);
+				color: $primary-dark-color;
+				margin-top: 39px;
+				margin-bottom: 30px;
+			}
+
+			.text {
+				@include font(400, 17px);
+				color: $secondary-dark-color;
+				margin-bottom: 29px;
+			}
+		}
+
+		.sneakers-models__discount_right {
+			&-img {
+				height: 566px;
+				position: absolute;
+				right: 0;
+			}
+
+			&-btn {
+				max-width: 175px;
+				max-height: 60px;
+				position: relative;
+				z-index: 10;
+				margin-left: 70px;
+				margin-top: 30px;
+				@include font(700, 18px);
+			}
+
+			.title,
+			.subtitle {
+				color: $primary-light-color;
+				position: relative;
+				z-index: 10;
+			}
+			.title {
+				margin-top: 189px;
+				margin-left: 73px;
+				margin-bottom: 30px;
+				@include font(900, 40px);
+			}
+
+			.subtitle {
+				@include font(400, 17px);
+				margin-left: 70px;
+				opacity: 0.7;
+			}
+		}
+	}
+
+	.sneakers-models__title {
+		text-align: center;
+		.title {
+			@include font(900, 40px);
+			color: $primary-dark-color;
+		}
+
+		.subtitle {
+			@include font(400, 17px);
+			color: $secondary-dark-color;
+			margin-top: 10px;
+		}
+	}
+
+	.sneakers-models__baners {
+		@include flex-center;
+		column-gap: 30px;
+		margin-top: 60px;
+        margin-bottom: 120px;
+
+		.baner {
+			position: relative;
+
+			&__title,
+			&__subtitle {
+				position: absolute;
+				left: 40px;
+                color: $primary-light-color;
+                max-width: 150px;
+			}
+
+			&__title {
+				top: 378px;
+				@include font(700, 19px);
+				
+			}
+			&__subtitle {
+				top: 449px;
+                opacity: 0.6;
+			}
+		}
+	}
+}
