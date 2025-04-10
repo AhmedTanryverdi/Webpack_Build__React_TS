@@ -2,9 +2,10 @@
 
 .main {
 	width: 100%;
+	background-color: $section-home-bg;
 
 	&__title {
-		margin-top: 281px;
+		padding-top: 281px;
 		margin-left: 200px;
 		max-width: 642px;
 
