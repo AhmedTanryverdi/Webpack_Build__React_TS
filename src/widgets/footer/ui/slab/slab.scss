@@ -1,10 +1,42 @@
 @import "@/shared/scss/styles.scss";
 
-.slab{
-    width: 100%;
+.slab {
+	width: 100%;
 
-    .slab__content{
-        padding: 40px 200px;
-        background-color: $primary-dark-color;
-    }
+	.slab__content {
+		padding: 40px 200px;
+		position: relative;
+
+		.slab__bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+		}
+
+        &_title{
+            position: relative;
+            z-index: 10;
+            margin-bottom: 29px;
+            @include font(700, 19px);
+            color: $primary-light-color;
+        }
+
+		&_block {
+			@include flex;
+			column-gap: 91px;
+			position: relative;
+			z-index: 10;
+
+			.block-item {
+				@include flex(row, flex-start, center);
+				column-gap: 20px;
+				color: $primary-light-color;
+                @include font(500, 15px);
+				p:first-child {
+					margin-bottom: 7px;
+				}
+			}
+		}
+	}
 }
