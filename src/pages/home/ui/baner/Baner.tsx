@@ -1,7 +1,8 @@
 import React from "react";
 import banerPng from "../../assets/images/baner.png";
-import "./baner.scss";
 import { Button } from "@/shared/components/button/Button";
+import "./baner.scss";
+
 
 export const Baner: React.FC = (): React.JSX.Element => {
 	return (
