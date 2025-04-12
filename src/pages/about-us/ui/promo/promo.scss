@@ -1,0 +1,36 @@
+@import "@/shared/scss/styles.scss";
+
+.promo {
+	width: 100%;
+	min-height: 554px;
+	@include flex-center(column);
+	position: relative;
+	.promo__bg {
+		position: absolute;
+		left: 0;
+		right: 0;
+		filter: brightness(70%);
+	}
+
+	.promo__title {
+		position: relative;
+		z-index: 10;
+		@include flex-center(column);
+		text-align: center;
+
+		.title {
+			@include font(700, 50px);
+			color: $primary-light-color;
+		}
+
+		.subtitle {
+			margin-top: 20px;
+			@include font(400, 17px);
+			color: #e9e9ed;
+
+			p:first-child {
+				margin-bottom: 7px;
+			}
+		}
+	}
+}
