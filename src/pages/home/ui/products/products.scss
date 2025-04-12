@@ -1,0 +1,26 @@
+@import "@/shared/scss/styles.scss";
+
+.products {
+	margin: 0 auto;
+
+	&__title {
+		text-align: center;
+
+		.title {
+			@include font(900, 40px);
+			color: $primary-dark-color;
+		}
+
+		.subtitle {
+			@include font(400, 17px);
+			color: $secondary-dark-color;
+			margin-top: 10px;
+		}
+	}
+
+	&__block {
+		margin-top: 60px;
+		@include flex(row, center, flex-start);
+		column-gap: 39px;
+	}
+}
