@@ -1,0 +1,47 @@
+@import "@/shared/scss/styles.scss";
+
+.arrival {
+	max-width: 1300px;
+	min-height: 353px;
+	margin: 0 auto;
+    margin-bottom: 129px;
+	position: relative;
+
+	img {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__left {
+		width: 642px;
+
+		&_title {
+            padding-right: 40px;
+			.title {
+				@include font(900, 40px);
+			}
+		}
+
+		.desc {
+			margin-top: 30px;
+
+			p {
+				@include font(400, 17px, 140%);
+				color: $secondary-dark-color;
+			}
+
+			p:first-child {
+				margin-bottom: 29px;
+			}
+		}
+	}
+
+	.arrival__btn {
+		max-width: 200px;
+		height: 61px;
+		@include font(700, 18px);
+        position: absolute;
+        bottom: 0;
+	}
+}
