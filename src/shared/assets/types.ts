@@ -14,3 +14,8 @@ export type ProductType = {
 	creationAt: string;
 	updatedAt: string;
 };
+
+export type SubTitleType = {
+	title: string;
+	text: string[];
+};

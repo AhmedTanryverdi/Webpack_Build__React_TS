@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export const ContactUs: React.FC = (): React.JSX.Element => {
-  return (
-    <div>ContactUs</div>
-  )
+  return <div className="contact-us">
+    <div className="container">
+      
+    </div>
+  </div>;
 }
