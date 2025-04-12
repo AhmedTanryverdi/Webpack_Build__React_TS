@@ -1,7 +1,7 @@
 import React from "react";
 import { Main } from "./ui/main/Main";
 import { SneakersModels } from "./ui/sneakers-models/SneakersModels";
-import { Baner } from "./ui/baner/Baner";
+import { Baner } from "../../shared/components/baner/Baner";
 import { Products } from "./ui/products/Products";
 import { Clients } from "../clients/Clients";
 import "./home.scss";

@@ -1,11 +1,12 @@
 @import "@/shared/scss/styles.scss";
 
 .promo {
-	width: 100%;
+	max-width: 100%;
 	min-height: 554px;
 	@include flex-center(column);
 	position: relative;
 	.promo__bg {
+		max-width: 100%;
 		position: absolute;
 		left: 0;
 		right: 0;
