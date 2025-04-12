@@ -1,0 +1,25 @@
+@import "@/shared/scss/styles.scss";
+
+.sub-promo {
+	max-width: 100%;
+	@include flex-center;
+	column-gap: 116px;
+    padding: 130px 0;
+
+	.sub-promo__card {
+		width: 220px;
+		height: 208px;
+		@include flex(column, flex-start, center);
+		text-align: center;
+		@include font(700, 20px);
+
+		.title {
+			margin-top: 22px;
+		}
+
+		.subtitle {
+			margin-top: 23px;
+			@include font(400, 17px, 135%);
+		}
+	}
+}
