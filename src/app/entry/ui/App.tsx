@@ -10,7 +10,7 @@ export const App: React.FC = (): React.JSX.Element => {
 		<div className="app">
 			<Routes>
 				<Route path="/" element={<Root />}>
-					<Route path="" element={<Home />} />
+					<Route index element={<Home />} />
 					<Route path="about" element={<AboutUs />} />
 					<Route path="contacts" element={<ContactUs />} />
 				</Route>
