@@ -6,8 +6,6 @@ import { Team } from "./ui/team/Team";
 import { Baner } from "@/shared/components/baner/Baner";
 import { SubTitleType } from "@/shared/assets/types";
 
-
-
 const titlesData: SubTitleType[] = [
 	{
 		title: "Superior Accuracy",
@@ -51,6 +49,7 @@ export const AboutUs: React.FC = (): React.JSX.Element => {
 					title="About Us"
 					subtitle="Duis vestibulum elit vel neque pharetra vulputate. Duis
 						rutrum non risus in imperdiet."
+					image="img"
 				/>
 				<SubPromo titlesData={titlesData} />;
 				<Arrival />
