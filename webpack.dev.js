@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { use } = require("react");
 
 module.exports = {
 	mode: "development",
@@ -22,6 +21,7 @@ module.exports = {
 
 	devServer: {
 		port: 5000,
+		historyApiFallback: true,
 	},
 
 	plugins: [
@@ -55,8 +55,8 @@ module.exports = {
 			},
 			{
 				test: /\.(png|jpg|svg)$/,
-				use: ["file-loader"]
-			}
+				use: ["file-loader"],
+			},
 		],
 	},
 
