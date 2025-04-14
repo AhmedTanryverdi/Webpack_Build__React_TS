@@ -18,15 +18,11 @@ export const SubPromo: React.FC<{ titlesData: SubTitleType[] }> = ({
 					<div key={index} className="sub-promo__card">
 						<img src={item} alt="icon" />
 						<div className="sub-promo__card_title">
-							<h3 className="title">
-								{Object.keys(titlesData[index])[0]}
-							</h3>
+							<h3 className="title">{titlesData[index].title}</h3>
 							<div className="subtitle">
-								{Object.values(titlesData[index]).map(
-									(str, indx) => {
-										return <p key={indx}>{str}</p>;
-									}
-								)}
+								{titlesData[index].text.map((str, indx) => {
+									return <p key={indx}>{str}</p>;
+								})}
 							</div>
 						</div>
 					</div>

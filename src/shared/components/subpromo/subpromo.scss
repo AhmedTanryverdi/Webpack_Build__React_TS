@@ -4,7 +4,7 @@
 	max-width: 100%;
 	@include flex-center;
 	column-gap: 116px;
-    padding: 130px 0;
+	padding: 130px 0;
 
 	.sub-promo__card {
 		width: 220px;
@@ -20,6 +20,7 @@
 		.subtitle {
 			margin-top: 23px;
 			@include font(400, 17px, 135%);
+			@include flex(column);
 		}
 	}
 }
