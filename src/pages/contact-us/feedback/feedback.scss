@@ -1,0 +1,62 @@
+@import "@/shared/scss/styles.scss";
+
+.feedback {
+	@include flex(row, center, flex-start);
+	column-gap: 41px;
+	padding: 0 200px 120px;
+
+	.form-block {
+		align-self: flex-start;
+
+		&__title {
+			color: $primary-dark-color;
+
+			.title {
+				@include font(700, 25px);
+			}
+
+			.subtitle {
+				margin-top: 34px;
+				@include font(400, 17px);
+			}
+		}
+
+		.feedback__form {
+			margin-top: 70px;
+			@include flex(column, center, flex-start);
+			row-gap: 39px;
+
+			label {
+				width: 100%;
+				
+				p {
+					@include font(700, 18px);
+					margin-bottom: 8px;
+					span {
+						color: $primary-color;
+						margin-left: 2px;
+					}
+				}
+				.input {
+					width: 100%;
+					height: 44px;
+					border: 1px solid $primary-color;
+					outline-color: $primary-color;
+				}
+
+				#textarea {
+					width: 100%;
+					min-height: 119px;
+					border: 1px solid $primary-color;
+					outline-color: $primary-color;
+				}
+			}
+
+			&_btn{
+				width: 90px;
+				height: 40px;
+				margin-top: -20px;
+			}
+		}
+	}
+}
