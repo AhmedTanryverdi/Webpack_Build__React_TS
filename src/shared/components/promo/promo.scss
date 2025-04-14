@@ -26,14 +26,11 @@
 
 		.subtitle {
 			margin-top: 20px;
-			@include font(400, 17px);
+			@include font(400, 17px, 130%);
 			color: #e9e9ed;
 
 			p {
 				max-width: 350px;
-			}
-			p:first-child {
-				margin-bottom: 7px;
 			}
 		}
 	}
