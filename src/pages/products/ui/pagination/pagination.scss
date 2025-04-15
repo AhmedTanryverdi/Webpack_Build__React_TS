@@ -1,0 +1,46 @@
+@import "@/shared/scss/styles.scss";
+
+.pagination {
+	@include flex-center;
+
+	.next {
+		width: 88px;
+		height: 40px;
+		text-transform: uppercase;
+		margin-left: 100px;
+		border: 2px solid $primary-color;
+		background-color: transparent;
+		border-radius: 5px;
+		@include font(700, 11px);
+		span {
+			margin-left: 13px;
+            @include font(700, 11px);
+		}
+	}
+
+	&__pages {
+		@include flex-center;
+		column-gap: 30px;
+
+		.page {
+			width: 41px;
+			height: 40px;
+
+			&__btn {
+				width: 41px;
+				height: 40px;
+				border: none;
+				outline: none;
+				@include font(600, 15px);
+				@include flex-center;
+				background-color: transparent;
+
+				&:focus {
+					border-radius: 8px;
+					background-color: $primary-color;
+					color: $primary-light-color;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+@import "@/shared/scss/styles.scss";
+
+.products {
+	width: 100%;
+	padding: 0 200px;
+	margin-bottom: 120px;
+
+	.products__content {
+		@include flex(row, flex-start, flex-start);
+		margin-top: 35px;
+
+		&_items {
+			@include flex(row, flex-start);
+			flex-wrap: wrap;
+			gap: 50px 11px;
+			margin-bottom: 60px;
+		}
+
+		&_side-bar {
+			max-width: 341px;
+			@include flex(column, flex-start, flex-start);
+			row-gap: 25px;
+
+			.title {
+				@include font(700, 17px);
+			}
+
+			.side-bar__item {
+				@include flex(row, flex-start);
+				column-gap: 20px;
+				&_img {
+					width: 87px;
+					height: 87px;
+				}
+			}
+		}
+	}
+}

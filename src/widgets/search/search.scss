@@ -1,0 +1,23 @@
+@import "@/shared/scss/styles.scss";
+
+.search {
+	@include flex(row, flex-end);
+	width: 100%;
+
+	&__input {
+		align-self: flex-end;
+		@include flex-center;
+		border: 2px solid #e9e9ed;
+		padding-right: 10px;
+
+		.input {
+			padding: 10px 14px;
+			@include font(400, 16px);
+			width: 341px;
+			flex: 1;
+			height: 40px;
+			border: none;
+			outline: none;
+		}
+	}
+}
