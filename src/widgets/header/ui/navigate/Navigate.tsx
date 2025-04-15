@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {navigateMenu} from "../../assets/constants/constants";
-import './navigate.scss';
-
+import { navigateMenu } from "../../assets/constants/constants";
+import "./navigate.scss";
 
 export const Navigate: React.FC = (): React.JSX.Element => {
 	return (
 		<div className="navigate">
-			{navigateMenu.map((item: string, index: number) => {
-				if(index >=1 && index <= 2){
-					return <button key={index} type="button">{item}</button>;
-				}
+			{navigateMenu.map((item, index) => {
 				return (
-					<Link key={index} to={index === 3 ? "/about" : index === 4 ? "/contacts": '/'}>
-						{item}
+					<Link key={index} to={item.link}>
+						{item.title}
 					</Link>
 				);
 			})}
