@@ -39,10 +39,11 @@ export const Products: React.FC = (): React.JSX.Element => {
 			<Search />
 			<div className="products__content">
 				<div className="products__content_items">
-					{products.map((item, index) => {
+					{products.map(item => {
 						return (
 							<ProductCard
-								key={index}
+								key={item.id}
+								id={item.id}
 								title={item.title}
 								price={item.price}
 								img={item.images[0]}
