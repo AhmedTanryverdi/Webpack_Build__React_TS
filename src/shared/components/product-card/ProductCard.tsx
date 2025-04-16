@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button } from '../button/Button';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./productcard.scss";
 
-
-
-export const ProductCard: React.FC<{ title: string; price: string; img: string }> = ({
-	title,
-	price,
-	img,
-}): React.JSX.Element => {
+export const ProductCard: React.FC<{
+	title: string;
+	price: string;
+	img: string;
+	id?: number;
+}> = ({ title, price, img, id }): React.JSX.Element => {
+	const navigate = useNavigate();
 
 	return (
 		<div className="product-card">
@@ -18,7 +18,12 @@ export const ProductCard: React.FC<{ title: string; price: string; img: string }
 				<p className="price">${price}</p>
 			</h3>
 
-			<Button text="View Product" name="product-card__btn" />
+			<button
+				className="product-card__btn"
+				onClick={() => navigate(`/products/${id}`)}
+			>
+				View Product
+			</button>
 		</div>
 	);
 };
