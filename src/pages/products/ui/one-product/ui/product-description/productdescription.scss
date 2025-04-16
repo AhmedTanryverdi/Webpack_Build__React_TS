@@ -1,0 +1,12 @@
+@import "@/shared/scss/styles.scss";
+
+.one-product__top-row_desc-product {
+	@include flex(column);
+	row-gap: 39px;
+	margin-top: 40px;
+
+	.text {
+		@include font(400, 17px, 160%);
+		color: $secondary-dark-color;
+	}
+}

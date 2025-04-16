@@ -1,0 +1,24 @@
+@import "@/shared/scss/styles.scss";
+
+.one-product__top-row_parameters {
+	margin-top: 49px;
+	@include flex(column, flex-start, flex-start);
+	row-gap: 25px;
+	width: 100%;
+
+	label {
+		@include flex(column, flex-start, flex-start);
+		width: 100%;
+		span {
+			margin-bottom: 13px;
+		}
+		.select {
+			width: 100%;
+			height: 40px;
+
+			option {
+				height: 40px;
+			}
+		}
+	}
+}

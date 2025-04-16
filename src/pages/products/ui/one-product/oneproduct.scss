@@ -1,0 +1,49 @@
+@import "@/shared/scss/styles.scss";
+
+.one-product {
+	width: 100%;
+	padding: 0 200px;
+
+	&__top-row {
+		@include flex(row, center, flex-start);
+		column-gap: 43px;
+
+		&_desc {
+			.title {
+				max-width: 474px;
+				@include font(700, 30px);
+			}
+
+			.price {
+				@include font(700, 20px);
+				margin-top: 15px;
+			}
+		}
+	}
+
+	.details {
+		margin-top: 79px;
+		text-align: left;
+		@include font(400, 17px, 170%);
+		color: $secondary-dark-color;
+	}
+
+	.advertisement {
+        margin-top: 99px;
+        margin-bottom: 120px;
+
+		&__title {
+            padding-bottom: 10px;
+			text-align: center;
+            text-decoration: underline;
+            text-underline-offset: 10px;
+            text-decoration-color: $primary-color;
+		}
+
+		&__products {
+			margin-top: 60px;
+			@include flex-center;
+			column-gap: 39px;
+		}
+	}
+}

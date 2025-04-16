@@ -1,0 +1,32 @@
+@import "@/shared/scss/styles.scss";
+
+.one-product__add-to-cart {
+	@include flex(row);
+    margin-top: 60px;
+
+	.counter {
+		width: 130px;
+		height: 55px;
+        padding: 12px 22px;
+		border: 2px solid $primary-color;
+		@include flex-center;
+        column-gap: 25px;
+        color: $fourth-dark-color;
+		.btn {
+			@include font(700, 25px);
+            border: none;
+            background-color: transparent;
+            color: $fourth-dark-color;
+		}
+
+        .amount{
+            @include font(700, 25px);
+        }
+	}
+
+    &_btn{
+        height: 55px;
+        margin-left: 12px;
+        @include font(700, 17px);
+    }
+}
