@@ -4,9 +4,9 @@ import { Slider } from "./ui/slider/Slider";
 import { ProductType } from "@/shared/assets/types";
 import { Parameters } from "./ui/parameters/Parameters";
 import { ProductDescription } from "./ui/product-description/ProductDescription";
-import "./oneproduct.scss";
 import { AddToCart } from "./ui/addtocart/AddToCart";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
+import "./oneproduct.scss";
 
 export const OneProduct: React.FC = (): React.JSX.Element => {
 	const { id } = useParams();

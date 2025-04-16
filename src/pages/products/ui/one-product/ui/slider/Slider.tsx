@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import "./slider.scss";
 
 export const Slider: React.FC<{ images: string[] | undefined }> = ({
@@ -7,18 +7,17 @@ export const Slider: React.FC<{ images: string[] | undefined }> = ({
 	if (!images) {
 		return <h1>...</h1>;
 	}
-	const [index, setIndex] = useState(0);
+	const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
 	const selectImage = (e: React.MouseEvent) => {
 		if (e.target instanceof HTMLImageElement) {
-			const idx = parseInt(e.target.getAttribute("data-index")!);
+			const index = parseInt(e.target.getAttribute("data-index")!);
 
-			if (idx) {
+			if (index) {
 				const url = images[0];
-				images[0] = images[idx];
-				images[idx] = url;
-				setIndex(idx);
-				index;
+				images[0] = images[index];
+				images[index] = url;
+				forceUpdate();
 			}
 		}
 	};
