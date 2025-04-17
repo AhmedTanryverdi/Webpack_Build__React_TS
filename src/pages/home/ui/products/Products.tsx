@@ -27,6 +27,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 					return (
 						<ProductCard
 							key={index}
+							id={item.id}
 							title={item.title}
 							price={item.price}
 							img={item.images[0]}

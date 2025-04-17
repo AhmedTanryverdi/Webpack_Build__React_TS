@@ -6,7 +6,7 @@ export const ProductCard: React.FC<{
 	title: string;
 	price: string;
 	img: string;
-	id?: number;
+	id: number;
 }> = ({ title, price, img, id }): React.JSX.Element => {
 	const navigate = useNavigate();
 
