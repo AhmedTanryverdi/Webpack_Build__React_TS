@@ -21,7 +21,7 @@ export const OneProduct: React.FC = (): React.JSX.Element => {
 		fetch(`https://api.escuelajs.co/api/v1/products?offset=10&limit=4`)
 			.then((response) => response.json())
 			.then((data) => setProducts(data));
-	}, []);
+	}, [id]);
 
 	return (
 		<div className="one-product">
@@ -63,10 +63,11 @@ export const OneProduct: React.FC = (): React.JSX.Element => {
 						{products?.map((item) => {
 							return (
 								<ProductCard
-									key={item.id}
-									title={item.title}
-									price={item.price}
-									img={item.images[0]}
+									key={item?.id}
+									id={item.id}
+									title={item?.title}
+									price={item?.price}
+									img={item?.images[0]}
 								/>
 							);
 						})}
