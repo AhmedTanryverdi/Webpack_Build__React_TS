@@ -4,7 +4,7 @@ import { SubPromo } from "../../shared/components/subpromo/SubPromo";
 import { Arrival } from "./ui/arrival/Arrival";
 import { Team } from "./ui/team/Team";
 import { Baner } from "@/shared/components/baner/Baner";
-import { SubTitleType } from "@/shared/assets/types";
+import { SubTitleType } from "@/shared/utils/types";
 
 const titlesData: SubTitleType[] = [
 	{

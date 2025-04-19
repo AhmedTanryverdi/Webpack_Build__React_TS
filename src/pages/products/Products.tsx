@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "@/widgets/search/Search";
-import { ProductType } from "@/shared/assets/types";
+import { ProductType } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
 import "./products.scss";
@@ -39,7 +39,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 			<Search />
 			<div className="products__content">
 				<div className="products__content_items">
-					{products.map(item => {
+					{products.map((item) => {
 						return (
 							<ProductCard
 								key={item.id}

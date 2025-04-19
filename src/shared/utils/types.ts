@@ -19,3 +19,7 @@ export type SubTitleType = {
 	title: string;
 	text: string[];
 };
+
+export type ImageType = {
+	title: string;
+};

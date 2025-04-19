@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Slider } from "./ui/slider/Slider";
-import { ProductType } from "@/shared/assets/types";
+import { ProductType } from "@/shared/utils/types";
 import { Parameters } from "./ui/parameters/Parameters";
 import { ProductDescription } from "./ui/product-description/ProductDescription";
 import { AddToCart } from "./ui/addtocart/AddToCart";

@@ -3,7 +3,7 @@ import icon from "./assets/icons/icon.png";
 import icon1 from "./assets/icons/icon.png";
 import icon2 from "./assets/icons/icon.png";
 import icon3 from "./assets/icons/icon.png";
-import { SubTitleType } from "@/shared/assets/types";
+import { SubTitleType } from "@/shared/utils/types";
 import "./subpromo.scss";
 
 const icons = [icon, icon1, icon2, icon3];
