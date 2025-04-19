@@ -1,0 +1,21 @@
+@import "@/shared/scss/styles.scss";
+
+.header__logo {
+	@include flex;
+	position: relative;
+
+	&_icon {
+		width: 35px;
+		height: 35px;
+	}
+
+	&_shoe {
+		position: absolute;
+	}
+
+	&_title {
+		@include font(700, 17px);
+		color: $primary-color;
+		margin-left: 10px;
+	}
+}

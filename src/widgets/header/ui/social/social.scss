@@ -1,0 +1,11 @@
+@import "@/shared/scss/styles.scss";
+
+.social {
+	max-width: 130px;
+	@include flex;
+	column-gap: 30px;
+	&_icon {
+		width: 15px;
+		height: 15px;
+	}
+}

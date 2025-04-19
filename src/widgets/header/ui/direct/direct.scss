@@ -1,0 +1,12 @@
+@import "@/shared/scss/styles.scss";
+
+.direct {
+	max-width: 107px;
+	@include flex-center;
+	column-gap: 30px;
+
+	&_item {
+		width: 16px;
+		height: 16px;
+	}
+}
