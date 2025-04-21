@@ -23,5 +23,4 @@ export type SubTitleType = {
 export type ImageType = {
 	title: string;
 	name: string;
-	toggle: (setState: (value: boolean) => void, value: boolean) => void;
 };
