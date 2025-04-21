@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Search } from "@/widgets/search/Search";
+import { Search } from "@/pages/products/ui/search/Search";
 import { ProductType } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
