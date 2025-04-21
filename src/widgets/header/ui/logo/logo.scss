@@ -3,6 +3,12 @@
 .header__logo {
 	@include flex;
 	position: relative;
+	flex: 1;
+	justify-content: flex-end;
+
+	&_content {
+		@include flex;
+	}
 
 	&_icon {
 		width: 35px;
