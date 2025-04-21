@@ -1,12 +1,41 @@
 @import "@/shared/scss/styles.scss";
 
 .direct {
-	max-width: 107px;
+	flex: 1;
 	@include flex-center;
 	column-gap: 30px;
 
-	&_item {
+	img {
 		width: 16px;
 		height: 16px;
+	}
+
+	&__user {
+		position: relative;
+	}
+
+	&__input {
+		flex: 1;
+		height: 25px;
+		margin-right: -20px;
+		display: flex;
+		justify-content: flex-end;
+		column-gap: 10px;
+
+		.input {
+			width: 0%;
+			height: 0%;
+			border: 1px solid transparent;
+			transition: 0.5s;
+			border-radius: 8px;
+			outline: none;
+			padding: 10px 12px;
+		}
+
+		.active {
+			width: 95%;
+			height: 100%;
+			border-color: grey;
+		}
 	}
 }
