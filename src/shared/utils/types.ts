@@ -5,11 +5,11 @@ export type ProductType = {
 	description: string;
 	images: string[];
 	category: {
-        id: number,
-        name: string,
-        image: string,
-        slug: string  
-    };
+		id: number;
+		name: string;
+		image: string;
+		slug: string;
+	};
 	id: number;
 	creationAt: string;
 	updatedAt: string;
@@ -22,4 +22,6 @@ export type SubTitleType = {
 
 export type ImageType = {
 	title: string;
+	name: string;
+	toggle: (setState: (value: boolean) => void, value: boolean) => void;
 };
