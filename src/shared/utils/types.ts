@@ -1,3 +1,6 @@
+import { store } from "@/app/store";
+import { useDispatch } from "react-redux";
+
 export type ProductType = {
 	title: string;
 	slug: string;
@@ -15,6 +18,10 @@ export type ProductType = {
 	updatedAt: string;
 };
 
+export interface IProductType {
+	products: ProductType[];
+}
+
 export type SubTitleType = {
 	title: string;
 	text: string[];
@@ -24,3 +31,7 @@ export type ImageType = {
 	title: string;
 	name: string;
 };
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
