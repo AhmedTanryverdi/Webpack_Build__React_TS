@@ -1,27 +1,33 @@
+import "./products.scss";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getProducts } from "@/entities/model/slices/products/products";
 import { Search } from "@/pages/products/ui/search/Search";
-import { ProductType } from "@/shared/utils/types";
+import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
-import "./products.scss";
 
 const amountProducts = 9;
 
 export const Products: React.FC = (): React.JSX.Element => {
-	const [products, setProducts] = useState<ProductType[]>([]);
+	const dispatch = useAppDispatch();
+	const products = useSelector<RootState, ProductType[]>(
+		(state) => state.products.products
+	);
+
 	const [sideBar, setSideBar] = useState<{ image: string; name: string }[]>(
 		[]
 	);
 	const [currentPage, setCurrentPage] = useState<number>(0);
 
 	useEffect(() => {
-		fetch(
-			`https://api.escuelajs.co/api/v1/products?offset=${
-				currentPage * amountProducts
-			}&limit=9`
-		)
-			.then((response) => response.json())
-			.then((data) => setProducts(data));
+		dispatch(
+			getProducts(
+				`https://api.escuelajs.co/api/v1/products?offset=${
+					currentPage * amountProducts
+				}&limit=9`
+			)
+		);
 	}, [currentPage]);
 
 	useEffect(() => {
