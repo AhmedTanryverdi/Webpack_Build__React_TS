@@ -7,7 +7,7 @@ import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
 
-const amountProducts = 9;
+const quantityProducts = 9;
 
 export const Products: React.FC = (): React.JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 		dispatch(
 			getProducts(
 				`https://api.escuelajs.co/api/v1/products?offset=${
-					currentPage * amountProducts
+					currentPage * quantityProducts
 				}&limit=9`
 			)
 		);
@@ -75,7 +75,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 				</div>
 			</div>
 			<Pagination
-				amountPages={4}
+				quantityPages={4}
 				currentPage={currentPage}
 				setCurrentPage={setCurrentPage}
 			/>
