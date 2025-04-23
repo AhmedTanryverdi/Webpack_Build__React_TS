@@ -1,0 +1,14 @@
+.row {
+	border-bottom: 2px solid #f22735;
+	padding: 0;
+
+	th:first-child {
+		width: 137px;
+		height: 138px;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
