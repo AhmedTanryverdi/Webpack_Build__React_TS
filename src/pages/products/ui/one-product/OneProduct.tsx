@@ -23,6 +23,10 @@ export const OneProduct: React.FC = (): React.JSX.Element => {
 			.then((data) => setProducts(data));
 	}, [id]);
 
+	if (!product) {
+		return <h1>Корзина пуста</h1>;
+	}
+
 	return (
 		<div className="one-product">
 			<div className="container">
@@ -35,7 +39,7 @@ export const OneProduct: React.FC = (): React.JSX.Element => {
 						<p className="price">$ {product?.price}</p>
 						<ProductDescription />
 						<Parameters />
-						<AddToCart />
+						<AddToCart product={product} />
 					</div>
 				</div>
 				<div className="details">
