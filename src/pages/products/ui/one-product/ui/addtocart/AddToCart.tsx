@@ -1,9 +1,15 @@
-import React, { useState } from "react";
 import "./addtocart.scss";
+import React, { useState } from "react";
 import { Button } from "@/shared/components/button/Button";
+import { ProductType, useAppDispatch } from "@/shared/utils/types";
+import { addProduct } from "@/entities/model/slices/cart/cart";
 
-export const AddToCart: React.FC = (): React.JSX.Element => {
-	const [amount, setAmount] = useState<number>(1);
+export const AddToCart: React.FC<{ product: ProductType }> = ({
+	product,
+}): React.JSX.Element => {
+	const [quantity, setQuantity] = useState<number>(1);
+	const dispatch = useAppDispatch();
+
 	return (
 		<div className="one-product__add-to-cart">
 			<div className="counter">
@@ -11,23 +17,29 @@ export const AddToCart: React.FC = (): React.JSX.Element => {
 					type="button"
 					className="btn"
 					onClick={() => {
-						if (amount > 1) {
-							setAmount(amount - 1);
+						if (quantity > 1) {
+							setQuantity(quantity - 1);
 						}
 					}}
 				>
 					-
 				</button>
-				<span className="amount">{amount}</span>
+				<span className="amount">{quantity}</span>
 				<button
 					type="button"
 					className="btn"
-					onClick={() => setAmount(amount + 1)}
+					onClick={() => setQuantity(quantity + 1)}
 				>
 					+
 				</button>
 			</div>
-			<Button text="Add To Cart" name="one-product__add-to-cart_btn" />
+			<Button
+				text="Add To Cart"
+				name="one-product__add-to-cart_btn"
+				handleClick={() => {
+					dispatch(addProduct({ product, quantity }));
+				}}
+			/>
 		</div>
 	);
 };
