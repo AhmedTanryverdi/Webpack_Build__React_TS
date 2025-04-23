@@ -21,26 +21,5 @@
 	&__pages {
 		@include flex-center;
 		column-gap: 30px;
-
-		.page {
-			width: 41px;
-			height: 40px;
-
-			&__btn {
-				width: 41px;
-				height: 40px;
-				border: none;
-				outline: none;
-				@include font(600, 15px);
-				@include flex-center;
-				background-color: transparent;
-
-				&:focus {
-					border-radius: 8px;
-					background-color: $primary-color;
-					color: $primary-light-color;
-				}
-			}
-		}
 	}
 }

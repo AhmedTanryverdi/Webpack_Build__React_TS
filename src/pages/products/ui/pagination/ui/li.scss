@@ -1,0 +1,21 @@
+@import "@/shared/scss/styles.scss";
+
+.page {
+	width: 41px;
+	height: 40px;
+
+	&__btn {
+		width: 41px;
+		height: 40px;
+		border: none;
+		outline: none;
+		@include font(600, 15px);
+		@include flex-center;
+		background-color: transparent;
+	}
+	.active {
+		border-radius: 8px;
+		background-color: $primary-color;
+		color: $primary-light-color;
+	}
+}

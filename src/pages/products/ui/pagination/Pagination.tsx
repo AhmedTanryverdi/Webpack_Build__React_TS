@@ -1,30 +1,36 @@
 import React from "react";
 import { Li } from "./ui/Li";
 import "./pagination.scss";
+import { useAppDispatch } from "@/shared/utils/types";
+import { setCurrentPage } from "@/entities/model/slices/pagination/pagination";
 
 export const Pagination: React.FC<{
-	amountPages: number;
+	quantityPages: number;
 	currentPage: number;
-	setCurrentPage: (currentPage: number) => void;
-}> = ({ amountPages, currentPage, setCurrentPage }): React.JSX.Element => {
+}> = ({ quantityPages, currentPage }): React.JSX.Element => {
+	const dispatch = useAppDispatch();
+
 	return (
 		<div className="pagination">
 			<ul className="pagination__pages">
-				{Array.from(new Array(amountPages).keys()).map((page) => {
+				{Array.from(new Array(quantityPages).keys()).map((page) => {
 					return (
-						<Li
-							key={page}
-							index={page}
-							setCurrentPage={setCurrentPage}
-							currentPage={currentPage}
-						/>
+						<Li key={page} index={page} currentPage={currentPage} />
 					);
 				})}
 			</ul>
 			<button
 				type="button"
 				className="next"
-				onClick={() => setCurrentPage(currentPage + 1 < amountPages ? currentPage+1: 0)}
+				onClick={() =>
+					dispatch(
+						setCurrentPage(
+							currentPage + 1 < quantityPages
+								? currentPage + 1
+								: 0
+						)
+					)
+				}
 			>
 				Next
 			</button>

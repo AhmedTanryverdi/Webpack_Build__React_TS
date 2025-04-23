@@ -1,38 +1,38 @@
-import React, { useEffect, useRef } from "react";
+import "./li.scss";
+import React, { useEffect, useState } from "react";
+import { useAppDispatch } from "@/shared/utils/types";
+import { setCurrentPage } from "@/entities/model/slices/pagination/pagination";
 
 export const Li: React.FC<{
 	index: number;
 	currentPage: number;
-	setCurrentPage: (currentPage: number) => void;
-}> = ({ index, setCurrentPage, currentPage }): React.JSX.Element => {
-	const buttonRef = useRef<HTMLButtonElement>(null);
+}> = ({ index, currentPage }): React.JSX.Element => {
+	const [activeBtn, setActiveBtn] = useState("");
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		if (currentPage === index) {
-			buttonRef.current?.focus();
+			setActiveBtn("active");
+		} else {
+			setActiveBtn("");
 		}
 	}, [currentPage]);
 
 	return (
 		<li key={index} className="page">
-			<button
-				type="button"
-				ref={buttonRef}
-				className="page__btn"
+			<div
+				className={`page__btn ${activeBtn}`}
 				onClick={() => {
-					setCurrentPage(index);
+					dispatch(setCurrentPage(index));
 					if (currentPage === index) {
-						buttonRef.current?.focus();
-					}
-				}}
-				onBlur={(e) => {
-					if (e.relatedTarget === null) {
-						e.target.focus();
+						setActiveBtn("active");
+					} else {
+						setActiveBtn("");
 					}
 				}}
 			>
 				{index + 1}
-			</button>
+			</div>
 		</li>
 	);
 };

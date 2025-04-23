@@ -18,7 +18,9 @@ export const Products: React.FC = (): React.JSX.Element => {
 	const [sideBar, setSideBar] = useState<{ image: string; name: string }[]>(
 		[]
 	);
-	const [currentPage, setCurrentPage] = useState<number>(0);
+	const currentPage = useSelector<RootState, number>(
+		(state) => state.pagination.currentPage
+	);
 
 	useEffect(() => {
 		dispatch(
@@ -77,7 +79,6 @@ export const Products: React.FC = (): React.JSX.Element => {
 			<Pagination
 				quantityPages={4}
 				currentPage={currentPage}
-				setCurrentPage={setCurrentPage}
 			/>
 		</div>
 	);
