@@ -1,4 +1,4 @@
-import { IProductType } from "@/shared/utils/types";
+import { ProductType } from "@/shared/utils/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getProducts = createAsyncThunk(
@@ -18,7 +18,9 @@ export const getProducts = createAsyncThunk(
 	}
 );
 
-const initialState: IProductType = {
+const initialState: {
+	products: ProductType[];
+} = {
 	products: [],
 };
 
