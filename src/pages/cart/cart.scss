@@ -25,7 +25,7 @@
 	}
 
 	&__content {
-		width: 1300px;
+		max-width: 1300px;
 		margin: 0 auto;
 
 		.table {
@@ -41,22 +41,6 @@
 					min-width: 137px;
 				}
 			}
-            
-
-			/*
-			&__head {
-                margin-top: 70px;
-				padding: 18px 40px;
-				@include flex-center;
-				column-gap: 30px;
-				background-color: $primary-dark-color;
-				color: $primary-light-color;
-                li{
-                    text-align: center;
-                    min-width: 137px
-                }
-			}
-            */
 		}
 	}
 }
