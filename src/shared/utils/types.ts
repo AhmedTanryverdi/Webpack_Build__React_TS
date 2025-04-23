@@ -18,9 +18,10 @@ export type ProductType = {
 	updatedAt: string;
 };
 
-export interface IProductType {
-	products: ProductType[];
-}
+export type CartProductType = {
+	product: ProductType;
+	quantity: number;
+};
 
 export type SubTitleType = {
 	title: string;
