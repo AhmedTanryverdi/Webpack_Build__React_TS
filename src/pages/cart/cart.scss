@@ -27,5 +27,60 @@
 	&__content {
 		max-width: 1300px;
 		margin: 0 auto;
+		margin-bottom: 120px;
+
+		.result {
+			@include flex(row, space-between, flex-start);
+			margin-top: 90px;
+
+			&__btns {
+				@include flex-center;
+				column-gap: 20px;
+
+				&_btn {
+					max-width: 224px;
+					height: 60px;
+					padding: 16px 20px;
+				}
+			}
+
+			&__counter {
+				width: 571px;
+				background-color: $primary-dark-color;
+				color: $primary-light-color;
+				padding-bottom: 42px;
+				
+				&_items {
+					max-width: 100%;
+					@include flex(column, center, space-between);
+					.item {
+						width: 100%;
+						flex: 1;
+						height: 57px;
+						padding: 20px 40px 0 40px;
+						> span {
+							display: inline-block;
+							width: 50%;
+						}
+
+						&-price {
+							text-align: right;
+						}
+
+						hr {
+							margin-top: 20px;
+							border-color: $primary-color;
+						}
+					}
+				}
+
+				&_btn {
+					width: 229px;
+					height: 42px;
+					margin-top: 45px;
+					margin-left: 42px;
+				}
+			}
+		}
 	}
 }
