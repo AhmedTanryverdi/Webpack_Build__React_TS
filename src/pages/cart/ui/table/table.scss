@@ -1,0 +1,16 @@
+@import "@/shared/scss/styles.scss";
+
+.table {
+	margin: 0 auto;
+	margin-top: 70px;
+	border-collapse: collapse;
+	thead {
+		background-color: $primary-dark-color;
+
+		th {
+			padding: 18px 0;
+			color: $primary-light-color;
+			min-width: 137px;
+		}
+	}
+}

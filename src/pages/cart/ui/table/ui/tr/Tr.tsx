@@ -1,6 +1,6 @@
 import "./tr.scss";
 import React from "react";
-import deleteIcon from "../../assets/icons/icon.png";
+import deleteIcon from "@/pages/cart/assets/icons/icon.png";
 import { useAppDispatch } from "@/shared/utils/types";
 import { deleteProduct } from "@/entities/model/slices/cart/cart";
 
