@@ -47,6 +47,7 @@ export const Cart: React.FC = (): React.JSX.Element => {
 								return (
 									<Tr
 										key={item.product.id}
+										id={item.product.id}
 										img={item?.product?.images[0]}
 										name={item?.product?.title}
 										price={item?.product?.price}
