@@ -12,6 +12,9 @@ export const Direct: React.FC = (): React.JSX.Element => {
 		const fn = (e: any) => {
 			if (e.target instanceof HTMLElement) {
 				if (e.target.parentElement?.className !== "direct") {
+					if (e.target.parentElement?.className === "direct__input") {
+						return;
+					}
 					setSearch(false);
 				}
 
