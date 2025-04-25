@@ -10,6 +10,7 @@ import { Table } from "./ui/table/Table";
 import { Button } from "@/shared/components/button/Button";
 import { clear } from "@/entities/model/slices/cart/cart";
 import { useNavigate } from "react-router-dom";
+import { EmptyCart } from "./ui/empty-cart/EmptyCart";
 
 export const Cart: React.FC = (): React.JSX.Element => {
 	const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ export const Cart: React.FC = (): React.JSX.Element => {
 	}, [products]);
 
 	if (!products.length) {
-		return <h1>Loading...</h1>;
+		return <EmptyCart />
 	}
 
 	return (

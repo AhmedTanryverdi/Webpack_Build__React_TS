@@ -1,0 +1,24 @@
+.empty-cart {
+	width: 100%;
+
+	.content {
+		max-width: 1300px;
+        height: 50vh;
+		margin: 0 auto;
+        margin-bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+		img {
+			width: 128px;
+			height: 128px;
+		}
+
+        .empty-cart__title{
+            margin-top: 40px;
+            opacity: 0.6;
+            font-size: 50px;
+        }
+	}
+}
