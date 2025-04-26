@@ -22,15 +22,19 @@ export const Products: React.FC = (): React.JSX.Element => {
 		(state) => state.pagination.currentPage
 	);
 
+	const inputText = useSelector<RootState, string>(
+		(state) => state.searchInput.inputText
+	);
+
 	useEffect(() => {
 		dispatch(
 			getProducts(
-				`https://api.escuelajs.co/api/v1/products?offset=${
+				`https://api.escuelajs.co/api/v1/products/?title=${inputText}&offset=${
 					currentPage * quantityProducts
 				}&limit=9`
 			)
 		);
-	}, [currentPage]);
+	}, [currentPage, inputText]);
 
 	useEffect(() => {
 		fetch("https://api.escuelajs.co/api/v1/categories")
@@ -44,7 +48,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 
 	return (
 		<div className="products">
-			<Search />
+			<Search inputText={inputText} />
 			<div className="products__content">
 				<div className="products__content_items">
 					{products.map((item) => {
@@ -76,10 +80,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 					})}
 				</div>
 			</div>
-			<Pagination
-				quantityPages={4}
-				currentPage={currentPage}
-			/>
+			<Pagination quantityPages={4} currentPage={currentPage} />
 		</div>
 	);
 };
