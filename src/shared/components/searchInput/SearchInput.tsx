@@ -11,10 +11,10 @@ export const SearchInput: React.FC<{
 
 	return (
 		<div className={`search-input ${elementName}`}>
-			<label htmlFor="search" className="label">
+			<label htmlFor="search-input" className="label">
 				<input
 					type="text"
-					id="search"
+					id="search-input"
 					className="search"
 					value={value}
 					onChange={onChange}

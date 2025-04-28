@@ -1,15 +1,25 @@
 import "./products.scss";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { CiSearch } from "react-icons/ci";
+import { GrFormClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
 import { getProducts } from "@/entities/model/slices/products/products";
-import { Search } from "@/pages/products/ui/search/Search";
+//import { Search } from "@/pages/products/ui/search/Search";
 import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
+import { SearchInput } from "@/shared/components/searchInput/SearchInput";
+import debounce from "lodash.debounce";
+import {
+	clear,
+	setInputText,
+} from "@/entities/model/slices/search-input/searchInput";
 
 const quantityProducts = 9;
 
 export const Products: React.FC = (): React.JSX.Element => {
+	const [searchValue, setSearchValue] = useState("");
+
 	const dispatch = useAppDispatch();
 	const products = useSelector<RootState, ProductType[]>(
 		(state) => state.products.products
@@ -42,13 +52,43 @@ export const Products: React.FC = (): React.JSX.Element => {
 			.then((data) => setSideBar(data));
 	}, []);
 
+	const updateInputText = useCallback(
+		debounce((str: string) => {
+			dispatch(setInputText(str));
+		}, 600),
+		[]
+	);
+
+	const onChange = (e: any) => {
+		setSearchValue(e?.currentTarget.value);
+		updateInputText(searchValue);
+		console.log(searchValue);
+	};
+
 	if (!products.length) {
 		return <h1>loading...</h1>;
 	}
 
 	return (
 		<div className="products">
-			<Search inputText={inputText} />
+			<SearchInput
+				elementName="products__input"
+				value={searchValue}
+				onChange={(e) => onChange(e)}
+				Component={() =>
+					searchValue ? (
+						<GrFormClose
+							size={17}
+							onClick={() => {
+								setSearchValue("");
+								dispatch(clear());
+							}}
+						/>
+					) : (
+						<CiSearch size={17} />
+					)
+				}
+			/>
 			<div className="products__content">
 				<div className="products__content_items">
 					{products.map((item) => {

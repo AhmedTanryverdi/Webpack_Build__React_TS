@@ -5,8 +5,22 @@
 	padding: 0 200px;
 	margin-bottom: 120px;
 
+	&__input {
+		@include flex(row, flex-end);
+		.label {
+			width: 341px;
+			height: 40px;
+			border: 1px solid grey;
+			padding-right: 6px;
+
+			#search {
+				width: 17px;
+			}
+		}
+	}
+
 	.products__content {
-		@include flex(row, flex-start, flex-start);
+		@include flex(row, space-between, flex-start);
 		margin-top: 35px;
 
 		&_items {
