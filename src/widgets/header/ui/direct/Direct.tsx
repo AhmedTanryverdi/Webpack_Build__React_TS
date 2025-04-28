@@ -1,26 +1,56 @@
 import "./direct.scss";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Access } from "./ui/Access";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { SearchInput } from "@/shared/components/searchInput/SearchInput";
+import { GrFormClose } from "react-icons/gr";
+import debounce from "lodash.debounce";
+import {
+	clear,
+	setInputText,
+} from "@/entities/model/slices/search-input/searchInput";
+import { RootState, useAppDispatch } from "@/shared/utils/types";
+import { useSelector } from "react-redux";
 
 export const Direct: React.FC = (): React.JSX.Element => {
 	const [isAccess, setAccess] = useState(false);
-	const [isSearch, setSearch] = useState(false);
+	const [activeSearch, setActiveSearch] = useState("");
+	const [searchValue, setSearchValue] = useState("");
 	const navigate = useNavigate();
+	const location = useLocation();
+	const dispatch = useAppDispatch();
+
+	const inputText = useSelector<RootState, string>(
+		(state) => state.searchInput.inputText
+	);
+
+	const updateInputText = useCallback(
+		debounce((str: string) => {
+			dispatch(setInputText(str));
+		}, 600),
+		[]
+	);
+
+	const onChange = (e: any) => {
+		setSearchValue(e?.currentTarget.value);
+		updateInputText(e?.currentTarget.value);
+	};
+
+	useEffect(() => {
+		if (inputText && location.pathname !== "/products") {
+			navigate("/products");
+		}
+	}, [inputText]);
 
 	useEffect(() => {
 		const fn = (e: any) => {
 			if (e.target instanceof HTMLElement) {
-				if (e.target.parentElement?.className !== "direct") {
-					if (e.target.parentElement?.className === "direct__input") {
-						return;
-					}
-					setSearch(false);
+				if (e.target?.className !== "search") {
+					setActiveSearch("");
 				}
 
 				if (e.target.parentElement?.className !== "direct__user") {
 					setAccess(false);
-				} else {
 				}
 			}
 		};
@@ -32,10 +62,20 @@ export const Direct: React.FC = (): React.JSX.Element => {
 
 	return (
 		<div className="direct">
-			<div className="direct__input">
-				<input
-					type="text"
-					className={`input ${isSearch && "active"}`}
+			<div className={`direct__search `}>
+				<SearchInput
+					elementName={`direct__search-input ${activeSearch}`}
+					value={searchValue}
+					onChange={(e) => onChange(e)}
+					Component={() => (
+						<GrFormClose
+							size={17}
+							onClick={() => {
+								dispatch(clear());
+								setSearchValue("");
+							}}
+						/>
+					)}
 				/>
 			</div>
 			<img
@@ -46,9 +86,10 @@ export const Direct: React.FC = (): React.JSX.Element => {
 				className="search"
 				onClick={() => {
 					setAccess(false);
-					setSearch(!isSearch);
+					setActiveSearch(activeSearch ? "" : "active");
 				}}
 			/>
+
 			<div className="direct__user">
 				<img
 					src={
@@ -57,13 +98,12 @@ export const Direct: React.FC = (): React.JSX.Element => {
 					}
 					alt="user image"
 					onClick={() => {
-						setSearch(false);
+						setActiveSearch("");
 						setAccess(!isAccess);
 					}}
 				/>
 				{isAccess && <Access />}
 			</div>
-
 			<img
 				src={
 					require(`@/widgets/header/assets/icons/shopping-cart.png`)
@@ -71,7 +111,7 @@ export const Direct: React.FC = (): React.JSX.Element => {
 				}
 				alt="cart image"
 				onClick={() => {
-					setSearch(false);
+					setActiveSearch("");
 					setAccess(false);
 					navigate("/cart");
 				}}

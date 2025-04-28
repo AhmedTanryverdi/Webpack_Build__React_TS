@@ -2,7 +2,7 @@
 
 .direct {
 	flex: 1;
-	@include flex-center;
+	@include flex(row, flex-end);
 	column-gap: 30px;
 
 	img {
@@ -14,28 +14,29 @@
 		position: relative;
 	}
 
-	&__input {
-		flex: 1;
-		height: 25px;
-		margin-right: -20px;
-		display: flex;
-		justify-content: flex-end;
+	&__search {
+		@include flex(row, flex-end, center);
+		border-color: transparent;
 		column-gap: 10px;
+		height: 25px;
+		flex: 0.95;
 
-		.input {
-			width: 0%;
-			height: 0%;
-			border: 1px solid transparent;
+		&-input {
+			flex: 1;
+			max-width: 0;
 			transition: 0.5s;
-			border-radius: 8px;
-			outline: none;
-			padding: 10px 12px;
+			.label {
+				height: 0;
+				border: 1px solid transparent;
+			}
 		}
 
 		.active {
-			width: 95%;
-			height: 100%;
-			border-color: grey;
+			max-width: 100%;
+			.label {
+				height: 25px;
+				border-color: grey;
+			}
 		}
 	}
 }
