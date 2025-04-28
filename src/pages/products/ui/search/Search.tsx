@@ -18,7 +18,7 @@ export const Search: React.FC<{ inputText: string }> = ({
 		}, 600),
 		[]
 	);
-	inputText;
+
 	return (
 		<section className="search">
 			<div className="search__input">

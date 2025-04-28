@@ -1,7 +1,6 @@
 import "./products.scss";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import debounce from "lodash.debounce";
 import { getProducts } from "@/entities/model/slices/products/products";
 import { Search } from "@/pages/products/ui/search/Search";
 import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
