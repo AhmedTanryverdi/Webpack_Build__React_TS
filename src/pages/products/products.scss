@@ -50,3 +50,18 @@
 		}
 	}
 }
+
+.error {
+	width: 100%;
+	padding: 50px 200px 30px 200px;
+	&__content {
+		max-width: 1300px;
+		margin: 0 auto;
+		height: 70vh;
+
+		&_title {
+			width: 100%;
+			color: $primary-color;
+		}
+	}
+}
