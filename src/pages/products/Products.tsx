@@ -1,10 +1,10 @@
 import "./products.scss";
 import React, { useCallback, useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { CiSearch } from "react-icons/ci";
 import { GrFormClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
-import { getProducts } from "@/entities/model/slices/products/products";
-//import { Search } from "@/pages/products/ui/search/Search";
+//import { getProducts } from "@/entities/model/slices/products/products";
 import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
@@ -21,9 +21,6 @@ export const Products: React.FC = (): React.JSX.Element => {
 	const [searchValue, setSearchValue] = useState("");
 
 	const dispatch = useAppDispatch();
-	const products = useSelector<RootState, ProductType[]>(
-		(state) => state.products.products
-	);
 
 	const [sideBar, setSideBar] = useState<{ image: string; name: string }[]>(
 		[]
@@ -36,15 +33,15 @@ export const Products: React.FC = (): React.JSX.Element => {
 		(state) => state.searchInput.inputText
 	);
 
-	useEffect(() => {
-		dispatch(
-			getProducts(
+	const { isLoading, error, data } = useQuery({
+		queryKey: ["products", currentPage],
+		queryFn: () =>
+			fetch(
 				`https://api.escuelajs.co/api/v1/products/?title=${inputText}&offset=${
 					currentPage * quantityProducts
 				}&limit=9`
-			)
-		);
-	}, [currentPage, inputText]);
+			).then(response=>response.json()).then(data=>data),
+	});
 
 	useEffect(() => {
 		fetch("https://api.escuelajs.co/api/v1/categories")
@@ -65,8 +62,10 @@ export const Products: React.FC = (): React.JSX.Element => {
 		console.log(searchValue);
 	};
 
-	if (!products.length) {
+	if (isLoading) {
 		return <h1>loading...</h1>;
+	}else if(error){
+		return <h1>Error!</h1>
 	}
 
 	return (
@@ -91,7 +90,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 			/>
 			<div className="products__content">
 				<div className="products__content_items">
-					{products.map((item) => {
+					{data.map((item: ProductType) => {
 						return (
 							<ProductCard
 								key={item.id}
