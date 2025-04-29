@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "@/app/store/index";
 import { App } from "./ui/App";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "../styles/app.css";
 
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
 			<Provider store={store}>
 				<QueryClientProvider client={queryClient}>
 					<App />
+					<ReactQueryDevtools initialIsOpen={false} />
 				</QueryClientProvider>
 			</Provider>
 		</BrowserRouter>
