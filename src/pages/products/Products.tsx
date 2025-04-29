@@ -13,6 +13,7 @@ import {
 	clear,
 	setInputText,
 } from "@/entities/model/slices/search-input/searchInput";
+import axios from "axios";
 
 export const Products: React.FC = (): React.JSX.Element => {
 	const [searchValue, setSearchValue] = useState("");
@@ -34,16 +35,16 @@ export const Products: React.FC = (): React.JSX.Element => {
 		(state) => state.searchInput.inputText
 	);
 
-	const { isLoading, error, data } = useQuery({
-		queryKey: ["products", currentPage],
+	const { isLoading, isError, error, data } = useQuery({
+		queryKey: ["products", currentPage, inputText],
 		queryFn: () =>
-			fetch(
-				`https://api.escuelajs.co/api/v1/products/?title=${inputText}&offset=${
-					currentPage * quantityProducts
-				}&limit=9`
-			)
-				.then((response) => response.json())
-				.then((data) => data),
+			axios
+				.get(
+					`https://api.escuelajs.co/api/v1/products1/?title=${inputText}&offset=${
+						currentPage * quantityProducts
+					}&limit=9`
+				)
+				.then((response) => response.data)
 	});
 
 	useEffect(() => {
@@ -67,8 +68,18 @@ export const Products: React.FC = (): React.JSX.Element => {
 
 	if (isLoading) {
 		return <h1>loading...</h1>;
-	} else if (error) {
-		return <h1>Error!</h1>;
+	}
+	if (isError) {
+		return (
+			<div className="error">
+				<div className="container">
+					<div className="error__content">
+						
+						<h1 className="error__content_title">{error.message}</h1>
+					</div>
+				</div>
+			</div>
+		);
 	}
 
 	return (
@@ -93,7 +104,7 @@ export const Products: React.FC = (): React.JSX.Element => {
 			/>
 			<div className="products__content">
 				<div className="products__content_items">
-					{data.map((item: ProductType) => {
+					{data?.map((item: ProductType) => {
 						return (
 							<ProductCard
 								key={item.id}
