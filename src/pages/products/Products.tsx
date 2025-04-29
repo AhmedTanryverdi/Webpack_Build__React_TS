@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { CiSearch } from "react-icons/ci";
 import { GrFormClose } from "react-icons/gr";
 import { useSelector } from "react-redux";
-//import { getProducts } from "@/entities/model/slices/products/products";
 import { ProductType, RootState, useAppDispatch } from "@/shared/utils/types";
 import { ProductCard } from "@/shared/components/product-card/ProductCard";
 import { Pagination } from "./ui/pagination/Pagination";
@@ -14,8 +13,6 @@ import {
 	clear,
 	setInputText,
 } from "@/entities/model/slices/search-input/searchInput";
-
-const quantityProducts = 9;
 
 export const Products: React.FC = (): React.JSX.Element => {
 	const [searchValue, setSearchValue] = useState("");
@@ -29,6 +26,10 @@ export const Products: React.FC = (): React.JSX.Element => {
 		(state) => state.pagination.currentPage
 	);
 
+	const quantityProducts = useSelector<RootState, number>(
+		(state) => state.pagination.quantityProducts
+	);
+
 	const inputText = useSelector<RootState, string>(
 		(state) => state.searchInput.inputText
 	);
@@ -40,7 +41,9 @@ export const Products: React.FC = (): React.JSX.Element => {
 				`https://api.escuelajs.co/api/v1/products/?title=${inputText}&offset=${
 					currentPage * quantityProducts
 				}&limit=9`
-			).then(response=>response.json()).then(data=>data),
+			)
+				.then((response) => response.json())
+				.then((data) => data),
 	});
 
 	useEffect(() => {
@@ -64,8 +67,8 @@ export const Products: React.FC = (): React.JSX.Element => {
 
 	if (isLoading) {
 		return <h1>loading...</h1>;
-	}else if(error){
-		return <h1>Error!</h1>
+	} else if (error) {
+		return <h1>Error!</h1>;
 	}
 
 	return (

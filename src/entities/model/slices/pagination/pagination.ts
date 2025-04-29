@@ -2,8 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: {
 	currentPage: number;
+	quantityProducts: number;
 } = {
 	currentPage: 0,
+	quantityProducts: 9,
 };
 
 const paginationSlice = createSlice({
